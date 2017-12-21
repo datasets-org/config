@@ -1,8 +1,8 @@
 import os
-from confobj.config import Config
-from confobj.config_yaml import ConfigYaml
-from confobj.config_env import ConfigEnv
-from confobj.config_json import ConfigJson
+from confobj import Config
+from confobj import ConfigYaml
+from confobj import ConfigEnv
+from confobj import ConfigJson
 
 
 class Conf(Config):
@@ -10,7 +10,6 @@ class Conf(Config):
         self.hello = "world"
         self.num = 42
         super().__init__()
-        # super(Config, self).__init__()
         self.configure()
 
 
