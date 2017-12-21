@@ -9,7 +9,7 @@ class Conf(Config):
     def __init__(self):
         self.hello = "world"
         self.num = 42
-        super().__init__()
+        super(Conf, self).__init__()
         self.configure()
 
 
@@ -27,7 +27,8 @@ class ConfYaml(Config):
     def __init__(self):
         self.hello = "world"
         self.num = 42
-        super().__init__(order=(ConfigYaml(open("tests/test.yaml")),))
+        super(ConfYaml, self).__init__(
+            order=(ConfigYaml(open("tests/test.yaml")),))
         self.configure()
 
 
@@ -43,7 +44,8 @@ class ConfYamlEnv(Config):
     def __init__(self):
         self.hello = "world"
         self.num = 42
-        super().__init__(order=(ConfigYaml(open("tests/test.yaml")),
+        super(ConfYamlEnv, self).__init__(
+            order=(ConfigYaml(open("tests/test.yaml")),
                                 ConfigEnv()))
         self.configure()
 
@@ -62,7 +64,8 @@ class ConfEnvYaml(Config):
     def __init__(self):
         self.hello = "world"
         self.num = 42
-        super().__init__(order=(ConfigEnv(),
+        super(ConfEnvYaml, self).__init__(
+            order=(ConfigEnv(),
                                 ConfigYaml(open("tests/test.yaml"))))
         self.configure()
 
@@ -81,7 +84,8 @@ class ConfJson(Config):
     def __init__(self):
         self.hello = "world"
         self.num = 42
-        super().__init__(order=(ConfigJson(open("tests/test.json")),))
+        super(ConfJson, self).__init__(order=(ConfigJson(open(
+            "tests/test.json")),))
         self.configure()
 
 

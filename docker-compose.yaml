@@ -5,3 +5,10 @@ services:
     volumes:
     - ./confobj:/confobj
     - ./tests:/tests
+  tests2:
+    build:
+      context: tests
+      dockerfile: Dockerfile-python2
+    volumes:
+    - ./confobj:/confobj
+    - ./tests:/tests

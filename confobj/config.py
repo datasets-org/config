@@ -7,7 +7,8 @@ from .config_env import ConfigEnv
 
 class Config(object):
     # todo use args ?
-    def __init__(self, order: Tuple[ConfigBase] = (ConfigEnv(),)) -> None:
+    def __init__(self, order=(ConfigEnv(),)):
+        # type: (Tuple[ConfigBase]) -> None
         """
 
         Args:
@@ -20,7 +21,8 @@ class Config(object):
         for c in self.__configs:
             assert isinstance(c, ConfigBase)
 
-    def __get(self, key: str, return_type: type = None) -> Any:
+    def __get(self, key, return_type=None):
+        # type: (str, type) -> Any
         v = None
         for c in self.__configs:
             if isinstance(c, ConfigEnv):
@@ -35,7 +37,8 @@ class Config(object):
             return return_type(v)
         return v
 
-    def configure(self) -> None:
+    def configure(self):
+        # type: () -> None
         """
             Configures object based on its initialization
         """

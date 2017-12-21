@@ -1,7 +1,12 @@
 import abc
 
+from typing import Any
 
-class ConfigBase(metaclass=abc.ABCMeta):
+
+class ConfigBase(object):
+    __metaclass__ = abc.ABCMeta
+
     @abc.abstractmethod
-    def get(self, key: str):
+    def get(self, key):
+        # type: (str) -> Any
         pass
