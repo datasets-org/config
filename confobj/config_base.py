@@ -1,7 +1,7 @@
 import abc
 
 
-class ConfigBase(abc.ABC):
+class ConfigBase(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def get(self, key: str):
         pass
