@@ -11,6 +11,7 @@ setup(
     license='MIT',
     install_requires=[
        "typing",
+       "pyYAML",
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
