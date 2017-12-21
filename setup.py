@@ -9,6 +9,9 @@ setup(
     author='Vit Listik',
     author_email='tivvit@seznam.cz',
     license='MIT',
+    install_requires=[
+       "typing",
+    ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
 

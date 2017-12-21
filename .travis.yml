@@ -7,4 +7,6 @@ python:
   - "3.6"
   - "pypy"
   - "nightly"
-script: py.test
+install:
+- pip install -r requirements.txt
+script: pytest
