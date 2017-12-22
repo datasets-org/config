@@ -3,6 +3,7 @@ from confobj import Config
 from confobj import ConfigYaml
 from confobj import ConfigEnv
 from confobj import ConfigJson
+from confobj import ConfigDict
 
 
 class Conf(Config):
@@ -46,7 +47,7 @@ class ConfYamlEnv(Config):
         self.num = 42
         super(ConfYamlEnv, self).__init__(
             order=(ConfigYaml(open("tests/test.yaml")),
-                                ConfigEnv()))
+                   ConfigEnv()))
         self.configure()
 
 
@@ -66,7 +67,7 @@ class ConfEnvYaml(Config):
         self.num = 42
         super(ConfEnvYaml, self).__init__(
             order=(ConfigEnv(),
-                                ConfigYaml(open("tests/test.yaml"))))
+                   ConfigYaml(open("tests/test.yaml"))))
         self.configure()
 
 
@@ -92,6 +93,26 @@ class ConfJson(Config):
 def test_config_json():
     conf = ConfJson()
     assert conf.hello == "json"
+    assert conf.num == 42
+    assert isinstance(conf.num, int)
+    assert isinstance(conf.hello, str)
+
+
+class ConfDict(Config):
+    def __init__(self):
+        self.hello = "world"
+        self.num = 42
+        super(ConfDict, self).__init__(order=(ConfigDict(
+            {
+                "hello": "dict"
+            }
+        ),))
+        self.configure()
+
+
+def test_config_dict():
+    conf = ConfDict()
+    assert conf.hello == "dict"
     assert conf.num == 42
     assert isinstance(conf.num, int)
     assert isinstance(conf.hello, str)

@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='confobj',
-    version='1.1.0',
+    version='1.2.0',
     description='Object overridable by external configuration',
     url='https://github.com/datasets-org/confobj',
     author='Vit Listik',
